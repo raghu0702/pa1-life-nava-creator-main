@@ -1,0 +1,4 @@
+life
+src/*.o
+outputs/*.output.txt
+life.tar

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
 #include "life.h"
 
 /* Be sure to read life.h and the other given source files to understand
@@ -19,7 +19,7 @@
  * one-argument format (as described in the handout) is for your own
  * benefit!
  */
-int countAlive(char grid[GRIDY][GRIDX], int y, int x){
+int countAlive(char **grid, int y, int x){
     int count = 0;
     for(int i = -1; i<2; i++){
         for(int j = -1; j<2; j++){
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
         print_grid(grid);
         usleep(300000);
         if (gen < target_generation) {
-            compute_next_generation(grid, next_grid);
+            simulateGen(grid, next_grid);
             char **temp = grid;
             grid = next_grid;
             next_grid = temp;
